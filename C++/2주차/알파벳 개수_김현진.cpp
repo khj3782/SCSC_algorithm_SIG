@@ -5,14 +5,12 @@ using namespace std;
 
 int main(){
 	int count[26] = {0};
-	char input[100] = {0};
+	string input;
 
 	cin >> input;
 
-	int iter = 0;
-	while(input[iter] != 0){
-		count[input[iter]-'a']++;
-		iter++;
+	for(int i = 0; i < input.length(); i++){
+		count[input[i]-'a']++;
 	}
 
 	for(int i = 0; i < 26; i++){
