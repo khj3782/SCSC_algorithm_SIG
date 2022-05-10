@@ -1,0 +1,144 @@
+# 10430) 나머지
+
+num_list = list(map(int, input().split()))
+a = num_list[0]
+b = num_list[1]
+c = num_list[2]
+
+amodc = a%c
+bmodc = b%c
+
+print((a+b)%c)
+print((amodc+bmodc)%c)
+print((a*b)%c)
+print((amodc*bmodc)%c)
+
+
+
+# 2609) 최대공약수와 최소공배수
+
+num_list = list(map(int, input().split()))
+a = num_list[0]
+b = num_list[1]
+
+gcf = 1
+
+for i in range(min(num_list), 0, -1) :
+    if (a%i==0 and b%i==0) :
+        gcf = gcf*i
+        a = a/i
+        b = b/i
+
+lcm = gcf*a*b
+
+print(gcf)
+print(int(lcm))
+
+
+
+# 1934) 최소공배수
+
+times = int(input())
+
+for i in range(times) :
+    num_list = list(map(int, input().split()))
+    a = num_list[0]
+    b = num_list[1]
+    gcf = 1
+    for i in range(min(num_list), 0, -1) :
+        if (a%i==0 and b%i==0) :
+            gcf = gcf*i
+            a = a/i
+            b = b/i
+    print(int(gcf*a*b))
+    
+    
+    
+# 1978) 소수 찾기
+
+times = int(input())
+num_list = list(map(int, input().split()))
+count = 0;
+
+for i in range(times) :
+    stack = list()
+    for j in range(1, num_list[i]) :
+        if (num_list[i]%j == 0) :
+            stack.append(j)
+    if (len(stack) == 1) :
+        count +=1
+
+print(count)
+
+
+
+# 1929) 소수 구하기
+
+start, end = map(int, input().split())
+nums = list(range(2, end+1))
+check = [False]*len(nums)
+
+for i in range(len(nums)) :
+    if (nums[i]**2 >= end) :
+        break
+    if (check[i] == True) :
+        continue
+    else : 
+        for j in range(i+nums[i], len(nums), nums[i]) :
+            check[j] = True
+            if (j == i) :
+                check[j] = False
+
+for i in range(start-2, end-2) :
+    if (check[i] == False) :
+        print(nums[i])
+        
+        
+        
+# 1676) 팩토리얼 0의 개수
+
+num = int(input())
+list5 = list()
+five = 0
+
+if (num>=5) :
+    for i in range(5, num+1) :
+        while True :
+            if (i%5 == 0) :
+                five += 1
+                i = i/5
+            else :
+                break
+
+print(five)
+
+
+
+#2004) 조합 0의 개수
+
+num_list = list(map(int, input().split()))
+start = num_list[0]
+end = num_list[1]
+list1 = list(range(5, start+1, 5))
+list2 = list()
+five1 = 0
+five2 = 0
+
+for i in range(5, start+1, 5) :
+    
+    if (i%5 == 0) :
+        five1 += 1
+        i = i/5
+        continue
+    else :
+        break
+
+for i in range(start, end+1) :
+    while True :
+        if (i%5 == 0) :
+            five2 += 1
+            i = i/5
+        else :
+            break
+
+print(five2-five1)
