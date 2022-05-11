@@ -54,7 +54,7 @@ def pop(self, i:int, k: int):
     else:
         return None
     
-#7 정창하님 풀이 이상 - 124에 3이 들어간다 생각하면 오류
+#7 
 def add(self, x) -> None:
     prevv = self.__head
     curr = prevv.next
