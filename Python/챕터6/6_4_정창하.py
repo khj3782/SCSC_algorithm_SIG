@@ -7,7 +7,7 @@ Created on Sun May 15 14:01:06 2022
 
 a = linkedStack
 b = linkedStack
-li = list
+li = []
 
 for i in len(a):
     li.append(a.pop())
