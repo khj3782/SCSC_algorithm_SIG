@@ -10,6 +10,6 @@ b = linkedStack
 li = list
 
 for i in len(a):
-    li.apend(a.pop())
+    li.append(a.pop())
 for l in li:
-    b.push(li)
+    b.push(l)
