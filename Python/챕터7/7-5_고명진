@@ -1,0 +1,36 @@
+class ListStack:
+    def __init__(self):
+        self.__stack = []
+
+    def push(self, x):
+        self.__stack.append(x)
+
+    def pop(self):
+        return self.__stack.pop()
+
+    def popAll(self):
+        self.__stack.clear()
+
+    def len(self):
+        return len(self.__stack)
+
+    def index(self,i):
+        return self.__stack[i]
+
+# 5
+main = ListStack()
+tmp = ListStack()
+
+
+def enqueue(x):
+    main.push(x)
+
+def dequeue():
+    for i in range(main.len()-1,-1):
+        tmp.push(main.index[i])
+    tmp.pop()
+    main.popAll()
+    for i in range(main.len()-1,-1):
+        main.push(tmp.index[i])
+    tmp.popAll()
+
