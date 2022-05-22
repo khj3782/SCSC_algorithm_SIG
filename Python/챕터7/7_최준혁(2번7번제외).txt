@@ -1,0 +1,115 @@
+<1번>
+
+class ListQueue:
+	def __init__(self):
+		self.__queue = []
+
+	def enque(self, x):				#append를 insert로
+		self.__queue.insert(0,x)
+
+	def deque(self):				#pop(0)를 pop()으로
+		return self.__queue.pop()
+
+	def front(self):				#[0] 을 [-1]로
+		return self.__queue[-1]
+
+	def isEmpty(self):
+		return len(self.__queue) == 0
+
+	def dequeAll(self):
+		self.__queue.clear()
+
+<2번>
+
+<3번>
+
+a = LinkedQueue()			
+for i in range(4):
+	a.enque(i)			# a == [0,1,2,3]
+###
+b = LinkedQueue()
+while not a.isEmpty():
+	b.enque(a.deque())		# b == [0,1,2,3]
+
+<4번>
+
+def push(self, newItem):		#원래 push : 맨앞삽입
+	self.__list.insert(0,newItem)
+def pop(self):			#원래 pop : 맨압반환
+	return self.__list.pop(0)
+###
+
+def push(self, newItem):		# __list == [a,b,c,d]
+	a = ListQueue()
+	a.enqueue(newItem)	# a== [newItem]
+	for i in self.__list:
+		a.enqueue(i)		# a== [newItem, a,b,c,d]
+	self.__list == []
+	while not a.isEmpty():
+		self.__list.append(a.enqueue()) # __list == [newItem, a,b,c,d]
+
+def pop(self):			# __list == [a,b,c,d]
+	a = ListQueue()
+	for i in self.__list:
+		a.enqueue(i)		# a== [a,b,c,d]
+	re = a.dequeue()		# a 반환
+	while not a.isEmpty():
+		self.__list.append(a.dequeue()) # __list == [b,c,d]
+	return re			# a 반환
+<5번>
+
+def enqueue(self, x):			#원래 queue를 [a,b,c,d] 라 할때
+	a = Stack()				
+	for i in self.__queue:
+		a.push(i)			# a== [d,c,b,a]
+	a.push(x)				# a== [x,d,c,b,a]
+	b = Stack()
+	while not a.isEmpty():
+		b.push(a.pop())		# b== [a,b,c,d,x]
+	self.__queue = []
+	while not b.isEmpty():
+		self.__queue.append(b.pop) # queue == [a,b,c,d,x]
+
+def dequeue(x):				#원래 queue를 [a,b,c,d] 라 할때
+	a = Stack()				
+	for i in self.__queue:
+		a.push(i)			# a== [d,c,b,a]
+	b = Stack()
+	while not a.isEmpty():
+		b.push(a.pop())		# b== [a,b,c,d]
+	re = b.pop()				# re == a
+	self.__queue = []
+	while not b.isEmpty():
+		self.__queue.append(b.pop()) # queue == [b,c,d]
+	return re				# a를 반환
+	
+	
+<6번>
+
+enqueue를 뒤에서하면 O1
+앞에서하면 리스트를 뒤집고, 삽입하고, 다시 뒤집으므로 O2n
+
+dequeue를 앞에서하면 O1
+뒤에서하면 리스트를 뒤집고, pop하고, 다시 뒤집으므로 O2n 
+
+<7번>
+
+<8번>
+
+class Deque
+	
+	def __init__(self):
+		self.__queue = []
+
+	def enqueue(self, x, at == 'tail'):
+		if at == 'tail':
+			self.__queue.append(x)
+		elif at == 'head':
+			self.__queue.insert(0,x)
+
+	def dequeue(self, at == 'head'):
+		if at == 'head':
+			self.__queue.pop(0)
+		elif at == 'head':
+			self.__queue.pop()
+		
